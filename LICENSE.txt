@@ -1,0 +1,8 @@
+This code is copyrighted by Razvan Cojocaru and presently shared under the Apache license.
+
+See the Apache license at: http://www.apache.org/licenses/LICENSE-2.0.txt
+
+...use it for whatever you see fit, but mention where it came from, including a link to this project.
+
+It would be nice to contribute with any enhancements, if you think it's worth it!
+
