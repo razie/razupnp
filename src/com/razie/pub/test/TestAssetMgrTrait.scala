@@ -1,0 +1,47 @@
+package com.razie.pub.test
+
+import com.razie.pub.data._
+import com.razie.pub.base._
+import com.razie.pub.assets._
+import junit.framework._
+
+
+object AApp extends Application {
+  junit.textui.TestRunner.run(classOf[TestAssetMgrTrait])
+}
+
+// just to instantiate a trait
+class SampleAssetMgrTrait extends AssetMgrTrait {
+}
+
+// injected sample - has 1 type and 2 actions
+class SampleAJ extends AssetCmdInjector {
+   val entityTypes = Array("Movie")
+   val actions = Array(new ActionItem("organize"), new ActionItem("moveto"))
+   
+  def doAction (entityKey:AssetKey, entity:Referenceable, action:String, ctx:ScriptContext) : AnyRef = {
+    println(action)
+  }
+}
+
+/** TODO proper junit */
+class TestAssetMgrTrait extends TestCase {
+  
+  type fun = (AssetKey, Referenceable, String, ScriptContext) => AnyRef
+  private[this] implicit def str2ActionI (s:String) : ActionItem = new ActionItem (s)
+
+
+  def testActionItem = {
+   val am = new SampleAssetMgrTrait
+ 
+   am.inject(new SampleAJ)
+   
+   //am.inject("Movie","organize",111)
+   //am.inject("Movie","moveto",println ("moveto" + _ + _ + _ )))
+
+  val aa = am.injections("Movie")
+  println ("A: " + (aa mkString ","))
+   //Assert.assertTrue(idx.get1k("Movie")==List("organize", "moveto"))
+   //Assert.assertTrue(idx.get2("Movie","organize") == Some(111))
+  }
+}
