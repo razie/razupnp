@@ -4,12 +4,11 @@ import com.razie.pub.base._
 
 object AssetMgrScala {
   
-  def instance : AssetMgrTrait = {
-    AssetMgr.instance().asInstanceOf[AssetMgrTrait]
-  }
+  def instance : AssetMgrTrait = 
+    AssetMgr.instance().asInstanceOf[AssetMgrTrait]  
   
     /** inject/overwrite an action on a set of asset types */
-  def inject (injected:AssetCmdInjector) : Unit = {
+  def inject (injected:AssetCmdInjector) : Unit = 
     instance inject injected
-  }
+
 }
