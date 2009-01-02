@@ -10,26 +10,14 @@ import org.w3c.dom._
 /** companion class to define the implicit conversion below */
 object RazElement {
   implicit def toraz (e:org.w3c.dom.Element) : RazElement = 
-    new RazDomElement (e)
+    new RazElement (e)
   
-  implicit def xmldoc2razelem (e:XmlDoc) : RazElement = 
-    new RazXmlDoc (e)
+  implicit def torazdoc (e:XmlDoc) : RazElement = 
+    new RazElement (e e)
 }
 
 /** simplify xpath access to dom */
-trait RazElement {
-
-  def a (name:String) : String
-  
-  def xpa (path:String) : String
-  
-  def xpe (path:String) : Element
-  
-  def xpl (path:String) : List[Element]
-}
-
-/** simplify xpath access to dom */
-class RazDomElement (val e:org.w3c.dom.Element) extends RazElement {
+class RazElement (val e:org.w3c.dom.Element) {
 
   implicit def jltoa[A](ij:java.util.List[A]) : Array[A] = {
     val l:Array[A] = new Array[A](ij.size)
@@ -47,17 +35,21 @@ class RazDomElement (val e:org.w3c.dom.Element) extends RazElement {
     l.toList
   }
   
-  override def a (name:String) : String = e.getAttribute (name)
+  def a (name:String) : String = e.getAttribute (name)
   
-  override def xpa (path:String) : String = XmlDoc.getAttr (e, path)
+  def ha (name:String) = e.hasAttribute (name)
   
-  override def xpe (path:String) : Element = XmlDoc.getEntity (e, path)
+  def xpa (path:String) : String = XmlDoc.getAttr (e, path)
   
-  override def xpl (path:String) : List[Element] = XmlDoc.listEntities (e, path)
-}
+  def xpe (path:String) : RazElement = XmlDoc.getEntity (e, path)
+  
+  def xpl (path:String) : List[RazElement] = {
+    // TODO optimize...
+    val l = XmlDoc.listEntities (e, path)
 
-/** simplify xpath access to dom */
-class RazXmlDoc (d:XmlDoc) extends RazDomElement (d.getDocument.getDocumentElement) {
-
-  override def a (name:String) : String = throw new UnsupportedOperationException ("can't get attr of an xmldoc")
+    val lre : List[Element] = l
+    
+    val rere = for (val e <- lre) yield new RazElement(e)
+    rere
+    }
 }
