@@ -1,0 +1,13 @@
+<!--  document used for unit tests of the xml stuff -->
+<root name="roota">
+<parent name="1">
+<child name="11"/>
+<child name="12"/>
+<child name="13"/>
+</parent>
+<parent name="2">
+<child name="21"/>
+<child name="22"/>
+<child name="23"/>
+</parent>
+</root>
