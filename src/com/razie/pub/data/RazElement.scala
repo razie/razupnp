@@ -1,8 +1,5 @@
 package com.razie.pub.data
 
-import com.razie.pub.draw._
-import com.razie.pub.draw.widgets._
-import com.razie.pub.base._
 import com.razie.pub.base.data._
 
 import org.w3c.dom._
