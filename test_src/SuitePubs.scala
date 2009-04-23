@@ -14,6 +14,7 @@ class SuitePubsScala extends SuperSuite (
 class SuitePubs (s:String) extends junit.framework.TestSuite(classOf[Nada]) {
   
   // this is where you list the tests...
+   addTestSuite(classOf[com.razie.pub.base.data.test.TripleIdxTest])
    addTestSuite(classOf[com.razie.pub.test.TestAssetMgrTrait])
    addTestSuite(classOf[com.razie.pub.data.test.TestRazElement])
    
