@@ -19,6 +19,7 @@ class RazElement (val e:org.w3c.dom.Element) {
   implicit def jltoa[A](ij:java.util.List[A]) : Array[A] = {
     val l:Array[A] = new Array[A](ij.size)
 
+  //TODO optimize this or even remove it
     for (i <- 0 to ij.size-1)
       l(i) = ij.get(i)
     
