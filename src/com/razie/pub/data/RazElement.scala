@@ -37,6 +37,13 @@ class RazElement (val e:org.w3c.dom.Element) {
   
   def ha (name:String) = e.hasAttribute (name)
   
+    /**
+     * i.e. "/config/mutant/@localdir"
+     * 
+     * @param path identifies the xpath
+     * @name identifies the name attribute of the element - could also be part of xpath instead
+     * @return never null
+     */
   def xpa (path:String) : String = XmlDoc.getAttr (e, path)
   
   def xpe (path:String) : RazElement = XmlDoc.getEntity (e, path)
