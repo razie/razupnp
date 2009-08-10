@@ -23,7 +23,8 @@ import com.razie.pub.agent._
  * 
  * @author Razie
  */
-@SoaService(){val name = "DrawScreenService", val bindings = Array("http"), val descr = "draw prepared screens" }
+//TODO @SoaService(){val name = "DrawScreenService", val bindings = Array("http"), val descr = "draw prepared screens" }
+@SoaService(name = "DrawScreenService", bindings = Array("http"), descr = "draw prepared screens" )
 class DrawScreenService extends AgentService {
 
     /** the second initialization phase: the agent is starting up */
@@ -34,7 +35,8 @@ class DrawScreenService extends AgentService {
     override def onShutdown() : Unit = {
     }
 
-    @SoaMethod(){val descr = "draw a screen", val args = Array( "screen" )}
+//TODO    @SoaMethod(){val descr = "draw a screen", val args = Array( "screen" )}
+    @SoaMethod(descr = "draw a screen", args = Array( "screen" ))
     def draw (screen:String) = {
       MyCache.get(screen) match {
         case Some (d) => d.render (Renderer.Technology.HTML, null)
@@ -42,7 +44,8 @@ class DrawScreenService extends AgentService {
       }
     }
     
-    @SoaMethod(){val descr = "list all screens in cache"}
+//TODO    @SoaMethod(){val descr = "list all screens in cache"}
+    @SoaMethod(descr = "list all screens in cache")
     @SoaStreamable
     def list (out:DrawStream):Unit =  
       // TODO nicer, use the _ number for the display...

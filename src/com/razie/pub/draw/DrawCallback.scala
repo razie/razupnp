@@ -6,7 +6,7 @@ import com.razie.pub.agent._
 import com.razie.pub.base.log._
 
 /** TODO FIXME this is not multi-thread safe... */
-private object MyCache {
+protected object MyCache {
    final val MAXTIMEMSEC = 5 * 60 * 1000
    
    var counter:int = 1
