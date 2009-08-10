@@ -1,7 +1,8 @@
-package com.razie.pub.data.test
+package com.razie.pub.base.data.test
 
-import com.razie.pub.data._
+import com.razie.pub.base.data._
 import com.razie.pub.base._
+import com.razie.pub.base.data._
 import com.razie.pub.base.data._
 import com.razie.pub.assets._
 import org.scalatest.junit._
@@ -24,4 +25,3 @@ class TestRazElement extends JUnit3Suite {
    def testXpl =
      expect (3) { doc xpl "/root/parent[@name='1']/child" size }
 }
-
