@@ -5,7 +5,7 @@ import org.scalatest.SuperSuite
 /** TODO testing the RazElement */
 class SuitePubsScala extends SuperSuite (
   List (
-    new com.razie.pub.data.test.TestRazElement,
+    new com.razie.pub.base.data.test.TestRazElementJava,
     new com.razie.pub.test.TestAssetMgrTrait
   )
 )
@@ -16,7 +16,10 @@ class SuitePubs (s:String) extends junit.framework.TestSuite(classOf[Nada]) {
   // this is where you list the tests...
    addTestSuite(classOf[com.razie.pub.base.data.test.TripleIdxTest])
    addTestSuite(classOf[com.razie.pub.test.TestAssetMgrTrait])
-   addTestSuite(classOf[com.razie.pub.data.test.TestRazElement])
+   addTestSuite(classOf[com.razie.pub.base.data.test.TestRazElementJava])
+   addTestSuite(classOf[com.razie.pub.base.data.test.TestRazElementScala])
+   addTestSuite(classOf[com.razie.pub.base.data.test.TestXpString])
+   addTestSuite(classOf[com.razie.pub.base.data.test.TestXpScala])
    
    def test1() = 
      // don't touch this line

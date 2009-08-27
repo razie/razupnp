@@ -15,6 +15,7 @@ class SampleAJ extends AssetCmdInjector {
    
   def doAction (entityKey:AssetKey, entity:Referenceable, action:String, ctx:ScriptContext) : AnyRef = {
     println(action)
+    "Ok."
   }
 }
 

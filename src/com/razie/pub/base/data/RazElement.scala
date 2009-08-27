@@ -45,10 +45,20 @@ object RazElement {
   
    implicit def toRazList[T](enumeration:java.util.List[T]):RazList[T] =
        new RazList(enumeration)
+  
+   implicit def toRazList1[T](enumeration:java.lang.Iterable[T]):RazList1[T] =
+       new RazList1(enumeration)
+   
    
 }
 
 class RazList[T](enumeration:java.util.List[T]) extends Iterator[T] {
+  val iter = enumeration.iterator
+  def hasNext:Boolean =  iter.hasNext
+  def next:T = iter.next
+}
+
+class RazList1[T](enumeration:java.lang.Iterable[T]) extends Iterator[T] {
   val iter = enumeration.iterator
   def hasNext:Boolean =  iter.hasNext
   def next:T = iter.next
@@ -138,35 +148,35 @@ class RazElementJava (val e:org.w3c.dom.Element) extends RazElement {
 /** simplify xpath access to dom */
 class RazElementScala (val e:scala.xml.Elem) extends RazElement {
 
-  def a (name:String) : String = (e \ name).text
+  def a (name:String) : String = 
+	  (e \ ((if (name.startsWith("@")) "" else "@")+name)).text
 
   def ha (name:String) = e attribute name match {
     case None => false
     case _ => true
   }
   
-  /** TODO implement */
+  /** TODO implement full xpath - for now use XP instead */
   def xpa (path:String) : String = this a path
   
-  /** TODO implement */
   def xpe (path:String) : RazElement = 
     xpl (path).first
   
-  /** TODO implement */
+  /** TODO implement full xpath - for now use XP instead */
   def xpl (path:String) : List[RazElement] = 
-    e.elements.filter(_.label==path).map(x =>
+    e.elements.filter(_.label==(path.replaceFirst("/",""))).map(x =>
       new RazElementScala(x.asInstanceOf[scala.xml.Elem])).toList
   
   def name : String = e label
 
     // TODO optimize
   def children : List[RazElement] = 
-    e.elements.filter(_.isInstanceOf[scala.xml.Elem]).map(x =>
+    e.child.filter(_.isInstanceOf[scala.xml.Elem]).map(x =>
       new RazElementScala(x.asInstanceOf[scala.xml.Elem])).toList
   
-  // TODO implement
+  // TODO implement properly - i don't know if text covers CDATA as well
   def nodeVal : String = {
-      val ret:String = null;
+      val ret:String = e.text
 //      if (e != null) {
 //         for (Node child = elem.getFirstChild(); child != null; child = child.getNextSibling()) {
 //            if (child.getNodeType() == Node.CDATA_SECTION_NODE || child.getNodeType() == Node.TEXT_NODE) {
