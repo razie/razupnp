@@ -1,8 +1,13 @@
-This code is copyrighted by Razvan Cojocaru and presently shared under the Apache license.
+This code is copyrighted by Razvan Cojocaru: you can use it only for personal use.
 
-See the Apache license at: http://www.apache.org/licenses/LICENSE-2.0.txt
+All code and resources in packages under com.razie.pub are copyrighted under the 
+Creative Commons Attribution 3.0 Unported License, 
+available at http://creativecommons.org/licenses/by/3.0/.
 
-...use it for whatever you see fit, but mention where it came from, including a link to this project.
+All resources in all other packages are copyrighted under the 
+Creative Commons Attribution-Noncommercial-Share Alike 3.0 Unported License, 
+available at http://creativecommons.org/licenses/by-nc-sa/3.0/
 
-It would be nice to contribute with any enhancements, if you think it's worth it!
+If you don't know what that means, you're not allowed to use, view, see or otherwise be near this.
 
+Contact via http://razpub.googlecode.com for other licensing options.
