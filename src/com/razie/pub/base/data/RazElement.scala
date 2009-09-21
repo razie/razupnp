@@ -39,7 +39,6 @@ object RazElement {
   //TODO optimize this or even remove it HOW???
   implicit def tolist[A](ij:java.util.List[A]) : List[A] = {
     val l:Array[A] = ij
-
     l.toList
   }
   
@@ -76,7 +75,7 @@ trait RazElement {
     /**
      * get attribute by path
      * 
-     * i.e. "/config/mutant/@localdir"
+     * i.e. "/config/mutant/@someattribute"
      * 
      * @param path identifies the xpath
      * @return never null
@@ -107,7 +106,7 @@ class RazElementJava (val e:org.w3c.dom.Element) extends RazElement {
   def ha (name:String) = e.hasAttribute (name)
   
     /**
-     * i.e. "/config/mutant/@localdir"
+     * i.e. "/config/mutant/@someattribute"
      * 
      * @param path identifies the xpath
      * @name identifies the name attribute of the element - could also be part of xpath instead

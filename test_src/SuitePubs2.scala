@@ -3,7 +3,7 @@ import org.scalatest.junit._
 import org.scalatest.SuperSuite
 
 /** TODO testing the RazElement */
-class SuitePubsScala extends SuperSuite (
+class SuitePubs2Scala extends SuperSuite (
   List (
     new com.razie.pub.base.data.test.TestRazElementJava,
     new com.razie.pub.test.TestAssetMgrTrait
@@ -11,7 +11,7 @@ class SuitePubsScala extends SuperSuite (
 )
 
 /** TODO this is sooooooooooooo messed up... */
-class SuitePubs () extends junit.framework.TestSuite(classOf[XNada]) {
+class SuitePubs2 () extends junit.framework.TestSuite(classOf[XNada2]) {
   
   // this is where you list the tests...
    addTestSuite(classOf[com.razie.pub.base.data.test.TripleIdxTest])
@@ -27,6 +27,6 @@ class SuitePubs () extends junit.framework.TestSuite(classOf[XNada]) {
      
 }
 
-class XNada extends junit.framework.TestCase {
+class XNada2 extends junit.framework.TestCase {
  def testNada : Unit =  {}
 }
