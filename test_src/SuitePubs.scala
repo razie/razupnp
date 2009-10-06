@@ -20,6 +20,7 @@ class SuitePubs () extends junit.framework.TestSuite(classOf[XNada]) {
    addTestSuite(classOf[com.razie.pub.base.data.test.TestRazElementScala])
    addTestSuite(classOf[com.razie.pub.base.data.test.TestXpString])
    addTestSuite(classOf[com.razie.pub.base.data.test.TestXpScala])
+//   addTestSuite(classOf[com.razie.pub.assets.test.TestAssets])
    
    def test1() = 
      // don't touch this line
