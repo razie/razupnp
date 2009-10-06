@@ -1,6 +1,6 @@
 /**
  * Razvan's public code. Copyright 2008 based on Apache license (share alike) see LICENSE.txt for
- * details.
+ * details. No warranty implied nor any liability assumed for this code.
  */
 package com.razie.pub.assets
 
@@ -23,7 +23,7 @@ object AssetMgrScala {
    /** list all assets of the given type at the given location */
    def find(ttype:String, env:AssetLocation, recurse:Boolean)
    :scala.collection.mutable.Map[AssetKey, AssetBrief] = {
-      RazElement.tomap (AssetMgr.find (ttype, env,recurse))
+      scala.collection.JavaConversions.asMap(AssetMgr.find (ttype, env,recurse))
 //      scala.collection.jcl.Conversions.convertMap(AssetMgr.find (ttype, env,recurse))
    }
 }

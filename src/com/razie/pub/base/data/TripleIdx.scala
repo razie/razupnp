@@ -1,6 +1,6 @@
 /**
  * Razvan's public code. Copyright 2008 based on Apache license (share alike) see LICENSE.txt for
- * details.
+ * details. No warranty implied nor any liability assumed for this code.
  */
 package com.razie.pub.base.data
 
@@ -38,17 +38,17 @@ class TripleIdx[A, B, C] {
    /** get the C for (a,b)*/
    def get2 (a:A, b:B) : Option[C] = {
       if (idx.contains(a))
-      idx.get(a).get.get(b)
+         idx.get(a).get.get(b)
       else
-      None
+         None
    }
  
    /** get the list of B's for a*/
    def get1k (a:A) : List[B] = {
       if (idx.contains(a))
-      Nil ++ idx.get(a).get.keySet
+         Nil ++ idx.get(a).get.keySet
       else
-      Nil
+         Nil
    }
     
    /** get the list of C's for a*/
@@ -57,11 +57,11 @@ class TripleIdx[A, B, C] {
          var ret:List[C] = List[C]()
           
          for (x<-idx.get(a).get.values)
-         ret = x :: ret
+            ret = x :: ret
          // TODO reverse may be useless since map doesn't preserve order?
          ret.reverse
       }
       else
-      Nil
+         Nil
    }
 }
