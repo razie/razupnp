@@ -8,5 +8,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/scalatest"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/scalacompiler"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry kind="output" path="out"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
