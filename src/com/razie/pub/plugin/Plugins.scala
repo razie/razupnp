@@ -19,7 +19,9 @@ object Plugins {
 
    // TODO need plugin dependencies
 	def findAll (dir:URL) : List[URL] = {
-		val files:Array[File] = new File(dir.toExternalForm).listFiles
+		val s=dir.toURI
+		// these must be files, not resources
+		val files:Array[File] = new File(dir.toURI()).listFiles
 		// TODO when scala 2.8 is fiexed: shopuld not have to do toList here
 		for (f <- files.toList; if (f.getName.matches("plugin_.*\\.xml")) )
          yield f.toURL()
@@ -52,13 +54,21 @@ object Plugins {
          try {
             // in development, the class would already be in classpath - screwy eclipse stuff
             var cloader = ClassLoader.getSystemClassLoader()
+            var shouldTryJar = try {
+            	cloader.loadClass(classname)
+            	false
+            } catch {
+            	case _ => true
+            }
    
-            // we need a jar file or assume it's in the classpath
-            val jar = new URL (plugin.toExternalForm.replace ("\\.xml$",".jar"))
-            // load the jar file in classpath
-            if (new java.io.File(jar.toURI).exists())
-               cloader = new java.net.URLClassLoader(Array(jar), cloader)
-      
+            if (shouldTryJar) {
+            	// we need a jar file or assume it's in the classpath
+            	val jar = new URL (plugin.toExternalForm.replaceFirst ("\\.xml$",".jar"))
+            	// load the jar file in classpath
+            	if (new java.io.File(jar.toURI).exists())
+            		cloader = new java.net.URLClassLoader(Array(jar), cloader)
+            }
+            
             val p = Class.forName (classname, true, cloader).newInstance ().asInstanceOf[Plugin];
             p.loadphase1
             allPlugins += p
