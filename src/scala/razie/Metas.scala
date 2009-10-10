@@ -39,7 +39,7 @@ trait SimpleXml {
 object Meta extends SimpleXml {
    def fromXml (e:RazElement) =
       new AssetMgr.Meta(
-            razie.AI cmdicon (a(e, "name"), a(e, "icon")), 
+            scala.razie.AI cmdicon (a(e, "name"), a(e, "icon")), 
             "", a(e, "inventory"))
 }
 

@@ -35,21 +35,21 @@ object Plugins {
 	    
       // 2. load config
 	    	
-      for (meta <- razie.RJX(doc) xpl "/plugin/metaspecs/metaspec") {
-         razie.Metas.addMeta(razie.Meta.fromXml (meta))
+      for (meta <- scala.razie.RJX(doc) xpl "/plugin/metaspecs/metaspec") {
+         scala.razie.Metas.addMeta(scala.razie.Meta.fromXml (meta))
          
          for (ma <- meta xpl "metaassoc")
-            razie.Metas.addAssoc (razie.MetaAssoc.fromXml (ma, meta));
+            scala.razie.Metas.addAssoc (scala.razie.MetaAssoc.fromXml (ma, meta));
       }
       
-      for (ma <- razie.RJX(doc) xpl "/plugin/metaspecs/metaassoc")
-         razie.Metas.addAssoc (razie.MetaAssoc.fromXml (ma));
+      for (ma <- scala.razie.RJX(doc) xpl "/plugin/metaspecs/metaassoc")
+         scala.razie.Metas.addAssoc (scala.razie.MetaAssoc.fromXml (ma));
        
       // initialize asset finders and players...
-      for (e <- razie.RJS(doc.listEntities("/plugin/assetfinders/assetfinder")))
+      for (e <- scala.razie.RJS(doc.listEntities("/plugin/assetfinders/assetfinder")))
          XmlConfigProcessors.eat (e)
 	         
-      val classname = razie.RJX apply doc xpa "/plugin/@classname"
+      val classname = scala.razie.RJX apply doc xpa "/plugin/@classname"
       if (classname.length > 0) {
          try {
             // in development, the class would already be in classpath - screwy eclipse stuff
@@ -65,8 +65,11 @@ object Plugins {
             	// we need a jar file or assume it's in the classpath
             	val jar = new URL (plugin.toExternalForm.replaceFirst ("\\.xml$",".jar"))
             	// load the jar file in classpath
-            	if (new java.io.File(jar.toURI).exists())
+            	if (new java.io.File(jar.toURI).exists()) {
+            	Log.logThis ("loading jar file: " + jar)
             		cloader = new java.net.URLClassLoader(Array(jar), cloader)
+            	} else
+            	Log.logThis ("ERROR_PLUGIN jar file not found: " + jar)
             }
             
             val p = Class.forName (classname, true, cloader).newInstance ().asInstanceOf[Plugin];
