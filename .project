@@ -3,7 +3,6 @@
 	<name>razpubs</name>
 	<comment></comment>
 	<projects>
-		<project>razpub</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
