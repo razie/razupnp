@@ -18,6 +18,12 @@ import com.razie.pub.base.data._
  */
 trait AssetMgrTrait {
 
+   //-------------------associations
+   def getAssocs() : List[MetaAssoc] = List() // TODO - use this, default is nothing
+  
+   //-------------------injections
+   
+   
    // You can inject these on-the-fly functions or AssetCmdInjector instances
    type InjectedFun = (AssetKey, Referenceable, String, ScriptContext) => AnyRef
 

@@ -24,5 +24,16 @@ object Agent {
 		val v = new AssetLocation (url)
 		(v.getHost, v.getPort)
 	}
+
+   def proxy (ati:ActionToInvoke) = 
+      Service ("proxy") action ("serve", AA ("via", Agents.me.url, "url", ati.makeActionUrl))
+      
+   def proxy (url:String) = 
+         Service ("proxy") action ("serve", AA ("via", Agents.me.url, "url", url))
+
+}
+
+// TODO - this is for what? sending events/messages?
+class SmartHandle (val handle:AgentHandle) {
 	
 }

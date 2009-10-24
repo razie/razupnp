@@ -8,6 +8,7 @@ import com.razie.pub.base.data._
  * probably the thing I hate the most about scala: interacting with Java collections 
  * 
  * use like this: RJS(javalist).foreach -OR- RJS apply javalist foreach -OR- RJS list javalist sort 
+ * OR for (x <- RJS.apply(whatever-java-threw-at-you))...
  */
 object RJS {
   def apply[A](ij:java.lang.Iterable[A]) : scala.collection.Iterable[A] = JavaConversions.asIterable(ij)

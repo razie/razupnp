@@ -14,6 +14,6 @@ object AI {
 class AI (
       cmd:String, label:String, tooltip:String, 
       iconP:String=com.razie.pub.resources.RazIcons.UNKNOWN.name) 
-   extends ActionItem (cmd, iconP, label, tooltip) {
+   extends ActionItem (cmd, iconP, (if (label==null)cmd else label), (if(tooltip==null)cmd else tooltip)) {
 
 }

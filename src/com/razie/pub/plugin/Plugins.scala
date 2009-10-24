@@ -36,7 +36,7 @@ object Plugins {
       // 2. load config
 	    	
       for (meta <- scala.razie.RJX(doc) xpl "/plugin/metaspecs/metaspec") {
-         scala.razie.Metas.addMeta(scala.razie.Meta.fromXml (meta))
+         scala.razie.Metas.add(scala.razie.Meta.fromXml (meta))
          
          for (ma <- meta xpl "metaassoc")
             scala.razie.Metas.addAssoc (scala.razie.MetaAssoc.fromXml (ma, meta));
