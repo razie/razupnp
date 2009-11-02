@@ -46,12 +46,17 @@ class XP[T] (val expr:String){
    val elements =  
       for (val e <- (expr split "/").filter(_!="")) 
     	  yield new XqElement[T] (e)
+   lazy val nonaelements = elements.filter(_.attr!="@")
+
+      /** return the matching list solve this path starting with the root and the given solving strategy */
+      private def ixpl (ctx:XqSolver[T,Any], root:T) : List[T] = 
+         for (e <- nonaelements.foldLeft (List ((root,List(root).asInstanceOf[Any])) ) ( (x,y) => y.solve(ctx, x).asInstanceOf[List[(T,Any)]]) ) 
+           yield e._1
 
       /** return the matching list solve this path starting with the root and the given solving strategy */
       def xpl (ctx:XqSolver[T,Any], root:T) : List[T] = {
          requireNotAttr
-         for (e <- elements.foldLeft (List ((root,List(root).asInstanceOf[Any])) ) ( (x,y) => y.solve(ctx, x).asInstanceOf[List[(T,Any)]]) ) 
-           yield e._1
+         ixpl(ctx, root)
       }
 
       /** return the matching list solve this path starting with the root and the given solving strategy */
@@ -60,18 +65,13 @@ class XP[T] (val expr:String){
       /** return the matching attribute solve this path starting with the root and the given solving strategy */
       def xpa (ctx:XqSolver[T,Any], root:T) : String = {
          requireAttr
-         ctx.getAttr(
-           (for (e <- elements.filter(_.attr!="@").foldLeft(List ((root,List(root).asInstanceOf[Any])) ) ( (x,y) => y.solve(ctx, x).asInstanceOf[List[(T,Any)]]) ) 
-             yield e._1
-          ).first, elements.last.name)
+         ctx.getAttr(ixpl(ctx,root).first, elements.last.name)
       }
           
       /** return the list of matching attribute solve this path starting with the root and the given solving strategy */
       def xpla (ctx:XqSolver[T,Any], root:T) : List[String] = {
          requireAttr
-           (for (e <- elements.filter(_.attr!="@").foldLeft(List ((root,List(root).asInstanceOf[Any])) ) ( (x,y) => y.solve(ctx, x).asInstanceOf[List[(T,Any)]]) ) 
-             yield e._1
-          ).map (ctx.getAttr(_, elements.last.name))
+         ixpl(ctx,root).map (ctx.getAttr(_, elements.last.name))
       }
           
       def requireAttr = if (elements.last.attr != "@") throw new IllegalArgumentException ("ERR_XP result should be attribute but it's an entity...")
