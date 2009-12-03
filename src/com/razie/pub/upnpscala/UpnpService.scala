@@ -4,7 +4,7 @@ import com.razie.pub.upnp._
 import com.razie.pub.lightsoa._
 import com.razie.pub.base.log._
 import com.razie.pub.base.data._
-//import scala.razie._
+//import razie._
 
 /** just a static factory */
 object UpnpServiceFactory {
