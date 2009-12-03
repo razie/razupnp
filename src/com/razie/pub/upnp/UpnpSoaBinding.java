@@ -7,6 +7,7 @@ package com.razie.pub.upnp;
 import org.cybergarage.upnp.Action;
 
 import com.razie.pub.base.AttrAccess;
+import com.razie.pub.base.AttrAccessImpl;
 import com.razie.pub.base.log.Log;
 import com.razie.pub.lightsoa.SoaBinding;
 import com.razie.pub.lightsoa.SoaMethod;
@@ -36,7 +37,7 @@ public class UpnpSoaBinding extends SoaBinding {
             logger.log("UPNP_SOA_" + actionName + ": ");
             action.print();
 
-            AttrAccess args = new AttrAccess.Impl();
+            AttrAccess args = new AttrAccessImpl();
 
             // setup the parms
             SoaMethod mdesc = methods.get(actionName).getAnnotation(SoaMethod.class);
