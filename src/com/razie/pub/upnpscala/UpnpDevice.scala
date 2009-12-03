@@ -37,8 +37,8 @@ trait UpnpDevice {
    def services : List[UpnpService]
 
    def xmlns:String
-   def versionMin:int
-   def versionMaj:int
+   def versionMin:Int
+   def versionMaj:Int
    def deviceType :String
    def friendlyName :String
    def manufacturer :String
