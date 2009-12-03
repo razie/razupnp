@@ -1,6 +1,8 @@
 package com.razie.pub.upnpscala;
 
-import org.cybergarage.upnp.*;
+import org.cybergarage.upnp.Device;
+import org.cybergarage.upnp.Service;
+import org.cybergarage.upnp.ServiceList;
 import org.cybergarage.upnp.device.InvalidDescriptionException;
 
 import com.razie.pub.base.log.Log;
