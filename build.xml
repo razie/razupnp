@@ -1,69 +1,161 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- You may freely edit this file. See commented blocks below for -->
-<!-- some examples of how to customize the build. -->
-<!-- (If you delete it and reopen the project it will be recreated.) -->
-<project name="razpubs" default="default" basedir=".">
-    <description>Builds, tests, and runs the project razpubs.</description>
-    <import file="nbproject/build-impl.xml"/>
-    <!--
-
-    There exist several targets which are by default empty and which can be 
-    used for execution of your tasks. These targets are usually executed 
-    before and after some main targets. They are: 
-
-      -pre-init:                 called before initialization of project properties
-      -post-init:                called after initialization of project properties
-      -pre-compile:              called before javac compilation
-      -post-compile:             called after javac compilation
-      -pre-compile-single:       called before javac compilation of single file
-      -post-compile-single:      called after javac compilation of single file
-      -pre-compile-test:         called before javac compilation of JUnit tests
-      -post-compile-test:        called after javac compilation of JUnit tests
-      -pre-compile-test-single:  called before javac compilation of single JUnit test
-      -post-compile-test-single: called after javac compilation of single JUunit test
-      -pre-jar:                  called before JAR building
-      -post-jar:                 called after JAR building
-      -post-clean:               called after cleaning build products
-
-    (Targets beginning with '-' are not intended to be called on their own.)
-
-    Example of inserting an obfuscator after compilation could look like this:
-
-        <target name="-post-compile">
-            <obfuscate>
-                <fileset dir="${build.classes.dir}"/>
-            </obfuscate>
-        </target>
-
-    For list of available properties check the imported 
-    nbproject/build-impl.xml file. 
-
-
-    Another way to customize the build is by overriding existing main targets.
-    The targets of interest are: 
-
-      -init-macrodef-javac:     defines macro for javac compilation
-      -init-macrodef-junit:     defines macro for junit execution
-      -init-macrodef-debug:     defines macro for class debugging
-      -init-macrodef-java:      defines macro for class execution
-      -do-jar-with-manifest:    JAR building (if you are using a manifest)
-      -do-jar-without-manifest: JAR building (if you are not using a manifest)
-      run:                      execution of project 
-      -javadoc-build:           Javadoc generation
-      test-report:              JUnit report generation
-
-    An example of overriding the target for project execution could look like this:
-
-        <target name="run" depends="razpubs-impl.jar">
-            <exec dir="bin" executable="launcher.exe">
-                <arg file="${dist.jar}"/>
-            </exec>
-        </target>
-
-    Notice that the overridden target depends on the jar target and not only on 
-    the compile target as the regular run target does. Again, for a list of available 
-    properties which you can use, check the target you are overriding in the
-    nbproject/build-impl.xml file. 
-
-    -->
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="razpubs">
+    <property environment="env"/>
+    <property name="razpub.location" value="../razpub"/>
+    <property name="razupnp.location" value="../razupnp"/>
+    <property name="ECLIPSE_HOME" value="../../bin/packages/eclipse35new"/>
+    <property name="razagent.location" value="../razagent"/>
+    <property name="razmedia.location" value="../razmedia"/>
+    <property name="razmutant.location" value="../razmutant"/>
+    <property name="razplay.location" value="../razplay"/>
+    <property name="razie.location" value="../razie"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="Scala Library version 2.8.0.r20608-b20100120020239.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/configuration/org.eclipse.osgi/bundles/889/1/.cp/lib/scala-library.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/configuration/org.eclipse.osgi/bundles/889/1/.cp/lib/scala-dbc.jar"/>
+        <pathelement location="${ECLIPSE_HOME}/configuration/org.eclipse.osgi/bundles/889/1/.cp/lib/scala-swing.jar"/>
+    </path>
+    <path id="JUnit 3.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}/plugins/org.junit_3.8.2.v20090203-1005/junit.jar"/>
+    </path>
+    <path id="scalacompiler.userclasspath">
+        <pathelement location="../../../../host/bin/scala/lib/scala-compiler.jar"/>
+    </path>
+    <path id="scalatest.userclasspath">
+        <pathelement location="../../../../host/bin/scala/scalatest/scalatest-1.0.1-for-scala-2.8.0.Beta1-RC1-SNAPSHOT.jar"/>
+    </path>
+    <path id="razie.classpath">
+        <pathelement location="${razie.location}/bin"/>
+        <path refid="Scala Library version 2.8.0.r20608-b20100120020239.libraryclasspath"/>
+        <path refid="scalatest.userclasspath"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+    </path>
+    <path id="razpub.classpath">
+        <pathelement location="${razpub.location}/bin"/>
+        <pathelement location="${razpub.location}/lib/bcprov-jdk16-143.jar"/>
+        <pathelement location="${razpub.location}/lib/js.jar"/>
+        <pathelement location="${razpub.location}/lib/json.jar"/>
+        <pathelement location="${razpub.location}/lib/log4j-1.2.7.jar"/>
+        <pathelement location="${razpub.location}/lib/mime-util.jar"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+        <path refid="Scala Library version 2.8.0.r20608-b20100120020239.libraryclasspath"/>
+        <path refid="scalacompiler.userclasspath"/>
+        <path refid="scalatest.userclasspath"/>
+        <path refid="razie.classpath"/>
+    </path>
+    <path id="razupnp.classpath">
+        <pathelement location="${razupnp.location}/lib/clink170.jar"/>
+        <pathelement location="${razupnp.location}/lib/xercesImpl290.jar"/>
+        <pathelement location="${razupnp.location}/lib/xml-apis290.jar"/>
+    </path>
+    <path id="razpubs.classpath">
+        <pathelement location="bin"/>
+        <path refid="Scala Library version 2.8.0.r20608-b20100120020239.libraryclasspath"/>
+        <path refid="razpub.classpath"/>
+        <path refid="scalacompiler.userclasspath"/>
+        <path refid="scalatest.userclasspath"/>
+        <path refid="razupnp.classpath"/>
+        <pathelement location="${razpub.location}/lib/json.jar"/>
+        <pathelement location="${razupnp.location}/lib/clink170.jar"/>
+        <path refid="JUnit 3.libraryclasspath"/>
+        <path refid="razie.classpath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.scala"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="test_src">
+                <exclude name="**/*.scala"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall">
+        <ant antfile="${razie.location}/build.xml" dir="${razie.location}" inheritAll="false" target="clean"/>
+        <ant antfile="${razpub.location}/build.xml" dir="${razpub.location}" inheritAll="false" target="clean"/>
+        <ant antfile="${razupnp.location}/build.xml" dir="${razupnp.location}" inheritAll="false" target="clean"/>
+    </target>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects">
+        <ant antfile="${razie.location}/build.xml" dir="${razie.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="${razpub.location}/build.xml" dir="${razpub.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="${razupnp.location}/build.xml" dir="${razupnp.location}" inheritAll="false" target="build-project">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="razpubs.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="test_src"/>
+            <classpath refid="razpubs.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="${razagent.location}/build.xml" dir="${razagent.location}" inheritAll="false" target="clean"/>
+        <ant antfile="${razagent.location}/build.xml" dir="${razagent.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="${razmedia.location}/build.xml" dir="${razmedia.location}" inheritAll="false" target="clean"/>
+        <ant antfile="${razmedia.location}/build.xml" dir="${razmedia.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="${razmutant.location}/build.xml" dir="${razmutant.location}" inheritAll="false" target="clean"/>
+        <ant antfile="${razmutant.location}/build.xml" dir="${razmutant.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+        <ant antfile="${razplay.location}/build.xml" dir="${razplay.location}" inheritAll="false" target="clean"/>
+        <ant antfile="${razplay.location}/build.xml" dir="${razplay.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
 </project>

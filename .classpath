@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="/razpub/lib/json.jar"/>
 	<classpathentry kind="lib" path="/razupnp/lib/clink170.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/razie"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

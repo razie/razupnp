@@ -8,9 +8,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 import com.razie.pub.draw.DrawStream;
-import com.razie.pub.draw.Renderer;
 import com.razie.pub.draw.SimpleDrawStream;
-import com.razie.pub.draw.Renderer.Technology;
+import com.razie.pub.draw.Technology;
 
 /**
  * a drawing stream for DIDL lists, used in UPNP. Will use UPNP as the rendering technology and add
@@ -31,7 +30,7 @@ public class DIDLDrawStream extends com.razie.pub.draw.DrawStream.DrawStreamWrap
     /** use this to stream to some other stream (http etc)...) */
     public DIDLDrawStream(DrawStream wrapped) throws IOException {
         super(wrapped);
-        switchTechnology(Renderer.Technology.UPNP);
+        switchTechnology(Technology.UPNP);
         (proxied).write(UpnpUtils.DIDL_BEG);
     }
 
