@@ -1,4 +1,4 @@
-package com.razie.pub.upnpscala;
+package razie.upnp;
 
 import org.cybergarage.upnp.Device;
 import org.cybergarage.upnp.Service;

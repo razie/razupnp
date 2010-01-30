@@ -1,4 +1,4 @@
-package com.razie.pub.upnpscala
+package razie.upnp
 
 import com.razie.pub.lightsoa._
 import com.razie.pub.upnp._

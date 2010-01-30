@@ -1,4 +1,4 @@
-package com.razie.pub.upnpscala
+package razie.upnp
 
 import org.cybergarage.upnp._
 import com.razie.pub.base.data._
