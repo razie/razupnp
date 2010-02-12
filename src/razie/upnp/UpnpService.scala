@@ -8,6 +8,7 @@ import com.razie.pub.base.log._
 import com.razie.pub.base._
 import com.razie.pub.base.data._
 //import razie._
+import razie.base._
 import scala.collection.JavaConversions._
 
 /** just a static factory */

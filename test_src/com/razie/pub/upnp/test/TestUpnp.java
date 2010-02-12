@@ -7,10 +7,11 @@ package com.razie.pub.upnp.test;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import razie.draw.HttpDrawStream;
+
 import junit.framework.TestCase;
 
 import com.razie.pub.base.log.Log;
-import com.razie.pub.draw.HttpDrawStream;
 import com.razie.pub.upnp.DIDLDrawStream;
 
 public class TestUpnp extends TestCase {

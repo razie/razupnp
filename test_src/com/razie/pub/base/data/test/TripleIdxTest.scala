@@ -4,6 +4,7 @@
  */
 package com.razie.pub.base.data.test
 
+import razie.base._
 import com.razie.pub.base._
 import com.razie.pub.base.data._
 import org.scalatest.junit._

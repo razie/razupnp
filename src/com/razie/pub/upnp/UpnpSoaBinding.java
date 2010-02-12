@@ -6,8 +6,8 @@ package com.razie.pub.upnp;
 
 import org.cybergarage.upnp.Action;
 
-import com.razie.pub.base.AttrAccess;
-import com.razie.pub.base.AttrAccessImpl;
+import razie.base.AttrAccess;
+import razie.base.AttrAccessImpl;
 import com.razie.pub.base.log.Log;
 import com.razie.pub.lightsoa.SoaBinding;
 import com.razie.pub.lightsoa.SoaMethod;

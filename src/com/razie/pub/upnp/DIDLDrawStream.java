@@ -7,9 +7,10 @@ package com.razie.pub.upnp;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import com.razie.pub.draw.DrawStream;
-import com.razie.pub.draw.SimpleDrawStream;
-import com.razie.pub.draw.Technology;
+import razie.draw.DrawStream;
+import razie.draw.SimpleDrawStream;
+import razie.draw.Technology;
+
 
 /**
  * a drawing stream for DIDL lists, used in UPNP. Will use UPNP as the rendering technology and add
@@ -23,7 +24,7 @@ import com.razie.pub.draw.Technology;
  * @version $Id$
  * 
  */
-public class DIDLDrawStream extends com.razie.pub.draw.DrawStream.DrawStreamWrapper {
+public class DIDLDrawStream extends razie.draw.DrawStream.DrawStreamWrapper {
 
     boolean closed = false;
 

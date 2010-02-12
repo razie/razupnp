@@ -4,6 +4,7 @@ import com.razie.pub.assets._
 import com.razie.pub.base._
 import org.scalatest.junit._
 import razie.assets._
+import razie.base._
 
 // just to instantiate a trait
 class SampleAssetMgrTrait extends AssetMgrInjector {
