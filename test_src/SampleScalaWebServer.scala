@@ -5,7 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
-import com.razie.pub.http.test.SampleWebServer
+import com.razie.pub.http.sample.SampleWebServer
 
 /**
  * a simple SCALA no threads web server 

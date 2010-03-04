@@ -30,5 +30,5 @@ public class TestUpnp extends TestCase {
         assertTrue (bytes.toString().contains("DIDL"));
     }
 
-    static final Log logger = Log.Factory.create(TestUpnp.class.getName());
+    static final Log logger = Log.factory.create(TestUpnp.class.getName());
 }

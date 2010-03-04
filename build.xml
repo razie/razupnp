@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="razpub">
-    <import file="../razie/base-build.xml"/>
+    <import file="../razbase/base-build.xml"/>
 
     <path id="depy.path">
         <pathelement location="../razupnp/lib/clink170.jar"/>
         <pathelement location="../razupnp/lib/xercesImpl290.jar"/>
         <pathelement location="../razupnp/lib/xml-apis290.jar"/>
-        <pathelement location="../razpub/lib/mime-util.jar"/>
+        <pathelement location="../razweb/lib/mime-util.jar"/>
+        <pathelement location="../razweb/bin"/>
         <pathelement location="../razpub/lib/log4j-1.2.7.jar"/>
         <pathelement location="../razpub/lib/js.jar"/>
         <pathelement location="../razpub/lib/bcprov-jdk16-143.jar"/>
         <pathelement location="../razpub/bin"/>
         <pathelement location="../20widgets/bin/"/>
-        <pathelement location="../razie/bin/"/>
-        <pathelement location="../razie/lib/json.jar"/>
+        <pathelement location="../razbase/bin/"/>
+        <pathelement location="../razbase/lib/json.jar"/>
         <pathelement location="${scala.home}/lib/scala-compiler.jar"/>
     </path>
 

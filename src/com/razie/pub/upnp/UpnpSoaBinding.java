@@ -72,5 +72,5 @@ public class UpnpSoaBinding extends SoaBinding {
         return false;
     }
     
-    protected final static Log logger = Log.Factory.create("soa", UpnpSoaBinding.class.getSimpleName());
+    protected final static Log logger = Log.factory.create("soa", UpnpSoaBinding.class.getSimpleName());
 }
