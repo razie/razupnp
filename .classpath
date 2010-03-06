@@ -7,13 +7,12 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/razpub"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/scalacompiler"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/scalatest"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/razupnp"/>
 	<classpathentry kind="lib" path="/razpub/lib/json.jar"/>
-	<classpathentry kind="lib" path="/razupnp/lib/clink170.jar"/>
+	<classpathentry kind="lib" path="lib/clink170.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/20widgets"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/razweb"/>
 	<classpathentry kind="lib" path="/razweb/lib/mime-util.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/razbase"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/20widgets"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
